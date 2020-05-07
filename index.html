@@ -4,7 +4,7 @@
   <title>Stat 153 Final Project</title>
   <style>
   img {
-  width: 70%;
+  width: 50%;
   }
 </style>
 </head>
@@ -21,7 +21,7 @@
   
   First of all, let's begin by having an understanding the movement of it's stock price for the last few years:
   
-  <img src="Image1.png" title="Stock Price MSN Apps (2015-2019)">
+  <img src="Image1.png" title="Stock Price MSN Apps (2015-2019)", class="center">
 
   Few observations from the stock movement: </p>
   <ul>
@@ -40,14 +40,16 @@
     <h2>Learning the pattern (aka fitting the model) </h2>
 <p>As observed in the stock price movement for the MSN Apps, there is a decreasing downward trend which can be captured with the help of a downward linear fit applied to the data after doing a simple mathematical transformation to handle the highly variable fluctuations:</p>
 
-  <img src="LinearTrend.png" title="Linear Trend Fit ">
+  <img src="LinearTrend.png" title="Linear Trend Fit" class="center">
 
- <p>After understanding the trend, the further analysis requires to capture the seasonality and the noise in the data.  </p>
+ <p>After understanding the trend, the further analysis requires to capture the seasonality and the noise in the data. All of this is captured in the form of a mathematical equation, which we refer to as the <b>Model</b> (in Machine Learning and Data Analysis world today). Fitting a perfect time series model to your data is like an art work. You have to go through multiple iterations to come up with the model that best fits your data. However, in theory, there are some guidelines that direct you towards choosing the correct parameters for your model.</p>
+ 
+ <p> Without going deep into the technical details of those guidelines,the model that we finally chose for this data utilizes log transformation of the data to stabilize  variance, captures the linear trend, handles a 5-trading day seasonality (about a business week). As we evaluated and compared this model to different other models we tried, we found that this was one of the best performing models in terms of predicting the actual stock price with the lowest error on average.</p>
 
   <h2>Forecasting</h2>
 <p>Finally, after learning the behavior of the stock prices and capturing it in the form of a mathematical equation (a.k.a model) - we can use the magical power of this model to forecast the future values for the stock price. Based on the model we learned on the MSN Apps data, the values for the 10 future days are as follows:  </p> 
 
-  <img src="ModelB_Prediction.png" title="Forecast for the coming 10 days">
+  <img src="ModelB_Prediction.png" title="Forecast for the coming 10 days" class="center">
  
  <p>The red line near the end of the graph represents the estimated value of the stock price for MSN Apps for the coming 10 days. The dotted lines around the predicted values represents the interval of confidence of our estimation. In other words, the interval gives an indication of how confident our model is in its prediction and the spectrum of variation that can be expected in the estimated value from the model. </p> 
 
